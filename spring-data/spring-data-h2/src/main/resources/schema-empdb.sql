@@ -1,0 +1,11 @@
+DROP TABLE IF EXISTS TBL_EMPLOYEES;
+ 
+CREATE TABLE TBL_EMPLOYEES (
+    id NUMERIC AUTO_INCREMENT,
+    first_name VARCHAR(250) NOT NULL,
+    last_name VARCHAR(250) NOT NULL,
+    email VARCHAR(250) NOT NULL ,
+    joining_date DATE NOT NULL,
+    PRIMARY KEY(id),
+    UNIQUE KEY tbl_employees_uk1 (email)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
