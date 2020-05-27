@@ -3,7 +3,7 @@ on: [push, pull_request]
 jobs:
   build:
     name: Build
-    runs-on: linux
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -16,7 +16,7 @@ jobs:
   verify:
     name: Verify
     needs: build
-    runs-on: linux
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2
