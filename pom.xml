@@ -15,10 +15,16 @@
         <module>spring-data</module>
     </modules>
 
-    <properties>
+    <properties>    
+        <!-- sonar -->
+        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+        <sonar.login>925fa1bf991b28c1800968fd5c13fe5daefa6e96</sonar.login>
+        <sonar.organization>mddeepaksoni</sonar.organization>
+        <sonar.projectKey>mddeepaksoni_learning-spring</sonar.projectKey>
+
+        <!-- version -->
         <java.version>1.8</java.version>
         <spring.boot.version>2.1.5.RELEASE</spring.boot.version>
-
         <swagger.version>2.9.2</swagger.version>
     </properties>
 

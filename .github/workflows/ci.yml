@@ -1,0 +1,34 @@
+name: Continuous Integration
+on: [push, pull_request]
+
+jobs:
+  env:
+    RUNS_ON: linux
+    JAVA_VERSION: 1.8
+
+
+  build:
+    - name: Build
+      runs-on: $RUNS_ON
+      steps:
+        - name: Checkout
+          uses: actions/checkout@v2
+        - name: Set up environment
+          uses: actions/setup-java@v1
+          with:
+            java-version: $JAVA_VERSION
+        - name: Build
+          run: mvn -B clean package
+
+  verify:
+    - name: Verify
+      runs-on: $RUNS_ON
+      steps:
+        - name: Checkout
+          uses: actions/checkout@v2
+        - name: Set up environment
+          uses: actions/setup-java@v1
+          with:
+            java-version: $JAVA_VERSION
+        - name: Verify
+          run: mvn verify sonar:sonar        
