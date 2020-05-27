@@ -1,12 +1,10 @@
 name: Continuous Integration
 on: [push, pull_request]
+env:
+  RUNS_ON: linux
+  JAVA_VERSION: 1.8
 
 jobs:
-  env:
-    RUNS_ON: linux
-    JAVA_VERSION: 1.8
-
-
   build:
     name: Build
     runs-on: $RUNS_ON
