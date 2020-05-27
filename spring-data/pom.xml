@@ -23,5 +23,7 @@
     </modules>
 
     <properties>
+        <!-- sonar -->
+        <sonar.projectKey>mddeepaksoni/learning-spring-data-parent</sonar.projectKey>
     </properties>
 </project>
