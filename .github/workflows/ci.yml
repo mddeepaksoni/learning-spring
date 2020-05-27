@@ -8,27 +8,28 @@ jobs:
 
 
   build:
-    - name: Build
-      runs-on: $RUNS_ON
-      steps:
-        - name: Checkout
-          uses: actions/checkout@v2
-        - name: Set up environment
-          uses: actions/setup-java@v1
-          with:
-            java-version: $JAVA_VERSION
-        - name: Build
-          run: mvn -B clean package
+    name: Build
+    runs-on: $RUNS_ON
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Set up environment
+        uses: actions/setup-java@v1
+        with:
+          java-version: $JAVA_VERSION
+      - name: Build
+        run: mvn -B clean package
 
   verify:
-    - name: Verify
-      runs-on: $RUNS_ON
-      steps:
-        - name: Checkout
-          uses: actions/checkout@v2
-        - name: Set up environment
-          uses: actions/setup-java@v1
-          with:
-            java-version: $JAVA_VERSION
-        - name: Verify
-          run: mvn verify sonar:sonar        
+    name: Verify
+    needs: build
+    runs-on: $RUNS_ON
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Set up environment
+        uses: actions/setup-java@v1
+        with:
+          java-version: $JAVA_VERSION
+      - name: Verify
+        run: mvn verify sonar:sonar        
